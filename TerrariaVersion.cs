@@ -588,7 +588,7 @@ namespace LiveSplit.Terraria {
         private class TerrariaVersion_1_4_5_2 : TerrariaVersion_1_4_4_8 {
             public TerrariaVersion_1_4_5_2() : base() {
                 BossAsmOffset = 0x46B;
-                HardmodeAsmOffset = 0x47B;
+                HardmodeAsmOffset = 0x498;
                 PlayerAsmOffset = 0x824;
                 NpcAsmOffset = 0x95C;
 
