@@ -6,6 +6,8 @@ namespace LiveSplit.Terraria {
 
     public abstract class TerrariaVersion {
         public string Signature { get; protected set; }
+        public string CrimsonSignature { get; protected set; } = "80 3D ???????? 00 74 05 ?? 24000000"; // Terraria.WorldGen.AddShadowOrb
+        public int CrimsonScanOffset { get; protected set; } = 2;
 
         public Dictionary<string, int> BossLookup { get; protected set; }
 
@@ -28,7 +30,9 @@ namespace LiveSplit.Terraria {
 
         public static TerrariaVersion GetVersion(Version ver) {
             if(ver.Minor == 4) {
-                if(ver >= new Version(1, 4, 4, 8)) {
+                if(ver >= new Version(1, 4, 5, 2)) {
+                    return new TerrariaVersion_1_4_5_2(); // TODO: OTHER 1.4.5 VERSIONS (should be the same)
+                } else if(ver >= new Version(1, 4, 4, 8)) {
                     return new TerrariaVersion_1_4_4_8();
                 } else if(ver >= new Version(1, 4, 4, 1)) {
                     return new TerrariaVersion_1_4_4_1();
@@ -578,6 +582,22 @@ namespace LiveSplit.Terraria {
                 HardmodeAsmOffset = 0x38C;
                 PlayerAsmOffset = 0x70D;
                 NpcAsmOffset = 0x840;
+            }
+        }
+
+        private class TerrariaVersion_1_4_5_2 : TerrariaVersion_1_4_4_8 {
+            public TerrariaVersion_1_4_5_2() : base() {
+                BossAsmOffset = 0x46B;
+                HardmodeAsmOffset = 0x47B;
+                PlayerAsmOffset = 0x824;
+                NpcAsmOffset = 0x95C;
+
+                InventoryTypeOffset = 0x4C;
+                NpcTypeOffset = 0xF0;
+                NpcActiveOffset = 0x188;
+
+                CrimsonSignature = "55 8B EC 83 F9 1A 75 14 80 3D ???????? 00 75 04 33 C0 5D C3 B8"; // Terraria.Recipe.GetRequiredTileStyle
+                CrimsonScanOffset = 10;
             }
         }
     }
