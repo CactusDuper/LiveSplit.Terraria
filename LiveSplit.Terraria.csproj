@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LiveSplit.Terraria</RootNamespace>
     <AssemblyName>LiveSplit.Terraria</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -47,17 +47,23 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="LiveSplit.Core">
-      <HintPath>..\LiveSplit\LiveSplit\bin\Release\LiveSplit.Core.dll</HintPath>
+      <HintPath>..\..\..\Downloads\LiveSplit_1.8.29\LiveSplit.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="UpdateManager">
-      <HintPath>..\LiveSplit\LiveSplit\bin\Release\UpdateManager.dll</HintPath>
+      <HintPath>..\..\..\Downloads\LiveSplit_1.8.29\UpdateManager.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ItemSelectorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="TerrariaComponent.cs" />
     <Compile Include="TerrariaComponentLogic.cs" />
+    <Compile Include="TerrariaSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="TerrariaVersion.cs" />
     <Compile Include="TerrariaMemory.cs" />
     <Compile Include="TerrariaEnums.cs" />

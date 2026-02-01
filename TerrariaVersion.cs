@@ -30,8 +30,10 @@ namespace LiveSplit.Terraria {
 
         public static TerrariaVersion GetVersion(Version ver) {
             if(ver.Minor == 4) {
-                if(ver >= new Version(1, 4, 5, 2)) {
-                    return new TerrariaVersion_1_4_5_2(); // TODO: OTHER 1.4.5 VERSIONS (should be the same)
+                if(ver >= new Version(1, 4, 5, 1)) {
+                    return new TerrariaVersion_1_4_5_1();
+                } else if(ver >= new Version(1, 4, 5, 0)) {
+                    return new TerrariaVersion_1_4_5_0();
                 } else if(ver >= new Version(1, 4, 4, 8)) {
                     return new TerrariaVersion_1_4_4_8();
                 } else if(ver >= new Version(1, 4, 4, 1)) {
@@ -585,8 +587,8 @@ namespace LiveSplit.Terraria {
             }
         }
 
-        private class TerrariaVersion_1_4_5_2 : TerrariaVersion_1_4_4_8 {
-            public TerrariaVersion_1_4_5_2() : base() {
+        private class TerrariaVersion_1_4_5_0 : TerrariaVersion_1_4_4_8 {
+            public TerrariaVersion_1_4_5_0() : base() {
                 BossAsmOffset = 0x46B;
                 HardmodeAsmOffset = 0x498;
                 PlayerAsmOffset = 0x824;
@@ -594,10 +596,16 @@ namespace LiveSplit.Terraria {
 
                 InventoryTypeOffset = 0x4C;
                 NpcTypeOffset = 0xF0;
-                NpcActiveOffset = 0x188;
+                NpcActiveOffset = 0x184;
 
-                CrimsonSignature = "55 8B EC 83 F9 1A 75 14 80 3D ???????? 00 75 04 33 C0 5D C3 B8"; // Terraria.Recipe.GetRequiredTileStyle
-                CrimsonScanOffset = 10;
+                CrimsonSignature = "55 8BEC 83F9 1A 75 ?? 803D ???????? 00 75 ?? 33C0 5D C3 B8"; // Terraria.Recipe.GetRequiredTileStyle
+                CrimsonScanOffset = 0xA;
+            }
+        }
+
+        private class TerrariaVersion_1_4_5_1 : TerrariaVersion_1_4_5_0 { // 1.4.5.1 - 1.4.5.3
+            public TerrariaVersion_1_4_5_1() : base() {
+                NpcActiveOffset = 0x188;
             }
         }
     }
