@@ -12,15 +12,10 @@ namespace LiveSplit.Terraria {
         private TextBox txtSearch;
         private ListBox lstItems;
         private Button btnAdd;
-        //private CheckBox chkCrucialOnly;
 
         public List<string> SelectedItemNames { get; private set; }
 
         private List<string> allItemNames;
-
-        //private readonly HashSet<string> crucialItems = new HashSet<string> {
-        //    "Cactus"
-        //};
 
         public ItemSelectorForm() {
             SelectedItemNames = new List<string>();
@@ -42,9 +37,6 @@ namespace LiveSplit.Terraria {
             txtSearch = new TextBox { Location = new Point(10, 30), Width = 260 };
             txtSearch.TextChanged += (s, e) => FilterList();
 
-            //chkCrucialOnly = new CheckBox { Text = "Show Crucial Items Only", Location = new Point(10, 55), Checked = true, AutoSize = true };
-            //chkCrucialOnly.CheckedChanged += (s, e) => FilterList();
-
             lstItems = new ListBox {
                 Location = new Point(10, 80),
                 Width = 260,
@@ -59,7 +51,7 @@ namespace LiveSplit.Terraria {
 
             var btnCancel = new Button { Text = "Cancel", Location = new Point(190, 370), DialogResult = DialogResult.Cancel };
 
-            this.Controls.AddRange(new Control[] { lblSearch, txtSearch, /*chkCrucialOnly,*/ lstItems, btnAdd, btnCancel });
+            this.Controls.AddRange(new Control[] { lblSearch, txtSearch, lstItems, btnAdd, btnCancel });
             this.AcceptButton = btnAdd;
             this.CancelButton = btnCancel;
         }
@@ -74,11 +66,9 @@ namespace LiveSplit.Terraria {
             lstItems.Items.Clear();
 
             string searchText = txtSearch.Text.ToLowerInvariant();
-            //bool crucialOnly = chkCrucialOnly.Checked;
 
             var filteredItems = allItemNames.Where(name =>
                 name.ToLowerInvariant().Contains(searchText)
-                //&& (!crucialOnly || crucialItems.Contains(name))
             );
 
             lstItems.Items.AddRange(filteredItems.ToArray());
