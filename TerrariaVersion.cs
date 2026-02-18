@@ -30,7 +30,9 @@ namespace LiveSplit.Terraria {
 
         public static TerrariaVersion GetVersion(Version ver) {
             if(ver.Minor == 4) {
-                if(ver >= new Version(1, 4, 5, 1)) {
+                if(ver >= new Version(1, 4, 5, 4)) {
+                    return new TerrariaVersion_1_4_5_4();
+                } else if(ver >= new Version(1, 4, 5, 1)) {
                     return new TerrariaVersion_1_4_5_1();
                 } else if(ver >= new Version(1, 4, 5, 0)) {
                     return new TerrariaVersion_1_4_5_0();
@@ -606,6 +608,11 @@ namespace LiveSplit.Terraria {
         private class TerrariaVersion_1_4_5_1 : TerrariaVersion_1_4_5_0 { // 1.4.5.1 - 1.4.5.3
             public TerrariaVersion_1_4_5_1() : base() {
                 NpcActiveOffset = 0x188;
+            }
+        }
+        private class TerrariaVersion_1_4_5_4 : TerrariaVersion_1_4_5_1 { // 1.4.5.4 - 1.4.5.5
+            public TerrariaVersion_1_4_5_4() : base() {
+                InventoryTypeOffset = 0x50;
             }
         }
     }
