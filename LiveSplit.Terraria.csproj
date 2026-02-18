@@ -47,11 +47,11 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="LiveSplit.Core">
-      <HintPath>..\..\..\Downloads\LiveSplit_1.8.29\LiveSplit.Core.dll</HintPath>
+      <HintPath>..\LiveSplit\LiveSplit\bin\Release\LiveSplit.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="UpdateManager">
-      <HintPath>..\..\..\Downloads\LiveSplit_1.8.29\UpdateManager.dll</HintPath>
+      <HintPath>..\LiveSplit\LiveSplit\bin\Release\UpdateManager.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -61,9 +61,7 @@
     </Compile>
     <Compile Include="TerrariaComponent.cs" />
     <Compile Include="TerrariaComponentLogic.cs" />
-    <Compile Include="TerrariaSettings.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="TerrariaSettings.cs" />
     <Compile Include="TerrariaVersion.cs" />
     <Compile Include="TerrariaMemory.cs" />
     <Compile Include="TerrariaEnums.cs" />
